@@ -97,6 +97,7 @@ $(document).ready(function () {
             $.ajax({
                 method: "POST",
                 url: "https://sandbox-api.uber.com/v1.2/requests/estimate",
+                dataType: "jsonp",
                 processData: false,
                 data: JSON.stringify({
                     product_id: uberRideInfo.product_id,
