@@ -58,6 +58,7 @@ $(document).ready(function () {
         console.log("Requesting price estimate...");
         $.ajax({
             method: "GET",
+            crossDomain: true,
             url: "https://sandbox-api.uber.com/v1.2/estimates/price",
             data: {
                 start_latitude: rideBeginLoc.lat,
@@ -66,7 +67,9 @@ $(document).ready(function () {
                 end_longitude: rideEndLoc.lon
             },
             headers: {
-                "Authorization": "Bearer " + token
+                "Authorization": "Bearer " + token,
+                "accept": "application/json",
+                "Access-Control-Allow-Origin":"*"
             }
         }).then(displayPriceEstimate);
     
@@ -97,7 +100,7 @@ $(document).ready(function () {
             $.ajax({
                 method: "POST",
                 url: "https://sandbox-api.uber.com/v1.2/requests/estimate",
-                dataType: "jsonp",
+                crossDomain: true,
                 processData: false,
                 data: JSON.stringify({
                     product_id: uberRideInfo.product_id,
@@ -109,6 +112,8 @@ $(document).ready(function () {
                 headers: {
                     "Authorization": "Bearer " + token,
                     "Content-Type": "application/json"
+                    "accept": "application/json",
+                    "Access-Control-Allow-Origin":"*"
                 }
             }).then(displayFare)
         }
@@ -143,6 +148,7 @@ $(document).ready(function () {
 
             $.ajax({
                 method: "POST",
+                crossDomain: true,
                 url: "https://sandbox-api.uber.com/v1.2/requests",
                 processData: false,
                 data: JSON.stringify({
@@ -156,6 +162,8 @@ $(document).ready(function () {
                 headers: {
                     "Authorization": "Bearer " + token,
                     "Content-Type": "application/json"
+                    "accept": "application/json",
+                    "Access-Control-Allow-Origin":"*"
                 }
             }).then(done);
 
@@ -174,8 +182,11 @@ $(document).ready(function () {
             $.ajax({
                 method: "DELETE",
                 url: "https://sandbox-api.uber.com/v1.2/requests/current",
+                crossDomain: true,
                 headers: {
-                    "Authorization": "Bearer " + token
+                    "Authorization": "Bearer " + token,
+                    "accept": "application/json",
+                    "Access-Control-Allow-Origin":"*"
                 }
             });
         }
