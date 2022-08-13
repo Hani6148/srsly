@@ -111,7 +111,7 @@ $(document).ready(function () {
                 }),
                 headers: {
                     "Authorization": "Bearer " + token,
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                     "accept": "application/json",
                     "Access-Control-Allow-Origin":"*"
                 }
@@ -161,7 +161,7 @@ $(document).ready(function () {
                 }),
                 headers: {
                     "Authorization": "Bearer " + token,
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                     "accept": "application/json",
                     "Access-Control-Allow-Origin":"*"
                 }
